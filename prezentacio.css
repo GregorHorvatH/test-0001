@@ -1,0 +1,642 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  background: linear-gradient(135deg, #2f5d50, #1b3a32, #2f5d50);
+  background-size: 300% 300%;
+  animation: bg-move 20s ease infinite;
+}
+
+@keyframes bg-move {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 10;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0;
+  background: #ffd166;
+  transition: width 0.5s;
+}
+
+.home-link {
+  position: fixed;
+  top: 16px;
+  left: 20px;
+  z-index: 10;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.home-link:hover {
+  opacity: 1;
+}
+
+/* Diák */
+#slides {
+  position: relative;
+  height: 100%;
+  perspective: 1400px;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  padding: 70px 8% 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  perspective: 1200px;
+  transition: opacity 0.8s, visibility 0.8s;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slide h1 {
+  font-size: 3.6rem;
+  margin: 0 0 16px;
+  text-shadow: 1px 1px 0 #1b3a32, 2px 2px 0 #1b3a32, 3px 3px 0 #1b3a32,
+    4px 4px 0 #1b3a32, 5px 5px 0 #1b3a32, 8px 10px 18px rgba(0, 0, 0, 0.5);
+}
+
+.slide h2 {
+  font-size: 2.6rem;
+  margin: 0 0 20px;
+  color: #ffd166;
+}
+
+.title-slide {
+  align-items: center;
+  text-align: center;
+}
+
+.title-slide p {
+  font-size: 1.4rem;
+}
+
+.hint {
+  opacity: 0.7;
+  font-size: 1rem !important;
+}
+
+/* Animációk: csak az aktív diánál futnak le */
+.anim {
+  opacity: 0;
+}
+
+.slide.active .anim {
+  animation-duration: 0.9s;
+  animation-delay: var(--d, 0s);
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+.slide.active .up {
+  animation-name: up;
+}
+.slide.active .left {
+  animation-name: left;
+}
+.slide.active .right {
+  animation-name: right;
+}
+.slide.active .zoom {
+  animation-name: zoom;
+}
+.slide.active .photo-left {
+  animation-name: left;
+  animation-delay: 0s;
+}
+.slide.active .photo-right {
+  animation-name: right;
+  animation-delay: 0s;
+}
+
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes left {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes right {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* A tükrözött képek animáció közben is tükrözöttek maradnak */
+.slide.active .photo-left.flip {
+  animation-name: left-flip;
+}
+
+@keyframes left-flip {
+  from {
+    opacity: 0;
+    transform: translateX(-80px) scaleX(-1);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(-1);
+  }
+}
+
+/* Listák */
+.big-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+.big-list li {
+  margin-bottom: 22px;
+  padding-left: 40px;
+  position: relative;
+}
+
+.big-list li::before {
+  content: "🐦";
+  position: absolute;
+  left: 0;
+}
+
+/* Madár diák */
+.bird-slide {
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+}
+
+.bird-slide.reverse {
+  flex-direction: row-reverse;
+}
+
+.bird-slide.reverse img {
+  --ry: -14deg;
+}
+
+.bird-slide img {
+  --ry: 14deg;
+  rotate: 0 1 0 calc(var(--ry) + var(--mx, 0) * 1deg);
+  transition: rotate 0.2s;
+  width: 50%;
+  max-height: 65vh;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.bird-text {
+  flex: 1;
+}
+
+.bird-text p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Kártyák */
+.cards {
+  display: flex;
+  gap: 30px;
+  perspective: 1000px;
+}
+
+.card {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  flex: 1;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 24px;
+  font-size: 1.2rem;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #ffd166;
+  font-size: 1.6rem;
+}
+
+.warning {
+  margin-top: 30px;
+  align-self: flex-start;
+  background: #ffe0e0;
+  color: red;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1.2rem;
+}
+
+/* Repülő madarak a címdián */
+.flying-birds span {
+  position: absolute;
+  top: var(--t);
+  right: -10%;
+  font-size: 2.5rem;
+  animation: fly var(--s) linear infinite;
+  animation-delay: var(--d);
+  opacity: 0.5;
+}
+
+@keyframes fly {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-120vw);
+  }
+}
+
+/* Vezérlők */
+#controls {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 10;
+}
+
+#controls button,
+#restart {
+  border: none;
+  border-radius: 20px;
+  padding: 10px 18px;
+  background: #ffd166;
+  color: #1b3a32;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#controls button:active,
+#restart:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+#controls button,
+#restart {
+  box-shadow: 0 4px 0 #b88a1a;
+}
+
+#controls button:hover,
+#restart:hover {
+  background: #ffc233;
+}
+
+#restart {
+  margin-top: 20px;
+}
+
+#counter {
+  min-width: 50px;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .slide {
+    padding: 60px 6% 90px;
+    overflow-y: auto;
+  }
+
+  .slide h1 {
+    font-size: 2.2rem;
+  }
+
+  .slide h2 {
+    font-size: 1.8rem;
+  }
+
+  .bird-slide,
+  .bird-slide.reverse {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .bird-slide img {
+    width: 100%;
+    max-height: 35vh;
+  }
+
+  .bird-text p,
+  .big-list {
+    font-size: 1.1rem;
+  }
+
+  .cards {
+    flex-direction: column;
+  }
+}
+
+/* ===== Cyberpunk stílus: neon, pásztázó sorok és rebegés ===== */
+body {
+  background: linear-gradient(135deg, #07161d, #1a0b24, #26110a, #07161d);
+  background-size: 300% 300%;
+}
+
+/* Pásztázó sorok (scanlines) enyhe villogással */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.22) 3px
+  );
+  animation: scan-flicker 0.15s steps(2) infinite;
+}
+
+/* Függőleges fénysáv, ami végigfut a képernyőn */
+body::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 120px;
+  z-index: 19;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 240, 255, 0),
+    rgba(0, 240, 255, 0.07),
+    rgba(0, 240, 255, 0)
+  );
+  animation: scan-bar 7s linear infinite;
+}
+
+@keyframes scan-flicker {
+  0% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scan-bar {
+  from {
+    top: -140px;
+  }
+  to {
+    top: 100%;
+  }
+}
+
+/* Az aktív dia időnként rebeg (csak az áttetszősége változik, a szöveg nem torzul) */
+.slide.active {
+  animation: cyber-flicker 7s infinite;
+}
+
+@keyframes cyber-flicker {
+  38% {
+    opacity: 0.92;
+  }
+  39% {
+    opacity: 0.8;
+  }
+  40% {
+    opacity: 0.95;
+  }
+  90% {
+    opacity: 0.85;
+  }
+  91% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 0.8;
+  }
+  93% {
+    opacity: 1;
+  }
+}
+
+/* Neon fények */
+#progress-bar {
+  background: #ff2bd6;
+  box-shadow: 0 0 10px #ff2bd6, 0 0 20px #ff2bd6;
+}
+
+.slide h1 {
+  text-shadow: 1px 1px 0 #0a3a40, 2px 2px 0 #0a3a40, 3px 3px 0 #0a3a40,
+    0 0 12px #00f0ff, 0 0 30px #00f0ff;
+}
+
+.slide h2 {
+  color: #ff9f1c;
+  text-shadow: 0 0 8px #ff7b00, 0 0 22px #ff7b00;
+}
+
+.bird-slide img {
+  box-shadow: 0 0 0 2px #00f0ff, 0 0 25px rgba(0, 240, 255, 0.6),
+    12px 12px 40px rgba(255, 43, 214, 0.35);
+}
+
+.card {
+  border: 1px solid #00f0ff;
+  box-shadow: 0 0 18px rgba(0, 240, 255, 0.4);
+}
+
+.card h3 {
+  color: #00f0ff;
+  text-shadow: 0 0 8px #00f0ff;
+}
+
+.big-list li::before {
+  filter: drop-shadow(0 0 6px #00f0ff);
+}
+
+#controls button,
+#restart {
+  background: transparent;
+  color: #00f0ff;
+  border: 2px solid #00f0ff;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.6), inset 0 0 8px rgba(0, 240, 255, 0.3);
+  text-shadow: 0 0 6px #00f0ff;
+}
+
+#controls button:hover,
+#restart:hover {
+  background: rgba(0, 240, 255, 0.2);
+}
+
+#counter {
+  color: #00f0ff;
+  text-shadow: 0 0 6px #00f0ff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after,
+  body::before,
+  .slide.active {
+    animation: none;
+  }
+}
+
+/* Hangszóró gomb */
+#controls #sound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  text-shadow: none;
+  border-radius: 50%;
+  border: 2px solid #ff2bd6;
+  background: transparent;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(255, 43, 214, 0.6), inset 0 0 8px rgba(255, 43, 214, 0.3);
+}
+
+#sound:hover {
+  background: rgba(255, 43, 214, 0.2);
+}
+
+#sound.playing {
+  animation: sound-pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes sound-pulse {
+  from {
+    box-shadow: 0 0 8px rgba(255, 43, 214, 0.4);
+  }
+  to {
+    box-shadow: 0 0 22px rgba(255, 43, 214, 0.9);
+  }
+}
+
+/* ===== Függőleges digitális artefaktok (cián "hologram" csíkok) ===== */
+#glitch-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 18;
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+
+.glitch-streak {
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  width: var(--w);
+  height: var(--h);
+  /* apró pontokból álló "pixel eső" */
+  background-image: radial-gradient(circle, #5ff6ff 0 38%, transparent 45%);
+  background-size: 3px 3px;
+  /* a csík teteje és alja elhalványul */
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 80%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 80%, transparent);
+  filter: drop-shadow(0 0 4px #00f0ff);
+  opacity: var(--o);
+  animation: streak-flicker var(--dur) steps(1) infinite;
+  animation-delay: var(--delay);
+}
+
+/* a szélesebb, halványabb blokkok a "hologram" darabjait adják */
+.glitch-streak.block {
+  background-size: 4px 4px;
+  background-image: radial-gradient(circle, #2fd8e0 0 30%, transparent 40%);
+}
+
+@keyframes streak-flicker {
+  0%,
+  100% {
+    opacity: var(--o);
+  }
+  18% {
+    opacity: 0;
+  }
+  32% {
+    opacity: var(--o);
+  }
+  58% {
+    opacity: calc(var(--o) * 0.3);
+  }
+  74% {
+    opacity: var(--o);
+  }
+  88% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #glitch-layer {
+    display: none;
+  }
+}

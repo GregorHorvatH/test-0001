@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prezentáció – Budapesti madarak</title>
+    <link rel="stylesheet" href="prezentacio.css" />
+  </head>
+  <body>
+    <div id="progress"><div id="progress-bar"></div></div>
+    <div id="glitch-layer" aria-hidden="true"></div>
+    <a class="home-link" href="index.html">← Vissza az oldalra</a>
+
+    <div id="slides">
+      <!-- 1. Címdia -->
+      <section class="slide title-slide active">
+        <div class="flying-birds" aria-hidden="true">
+          <span style="--t: 12%; --s: 14s; --d: 0s">🐦</span>
+          <span style="--t: 30%; --s: 18s; --d: 3s">🕊️</span>
+          <span style="--t: 55%; --s: 16s; --d: 6s">🐦</span>
+          <span style="--t: 75%; --s: 20s; --d: 1s">🕊️</span>
+        </div>
+        <h1 class="anim zoom" style="--d: 0.2s">Budapesti madarak</h1>
+        <p class="anim up" style="--d: 0.9s">
+          Prezentáció a főváros leggyakoribb madarairól
+        </p>
+        <p class="hint anim up" style="--d: 1.6s">
+          Lapozás: nyilak, szóköz vagy az alsó gombok
+        </p>
+      </section>
+
+      <!-- 2. Az oldalról -->
+      <section class="slide">
+        <h2 class="anim left" style="--d: 0.1s">Miről szól az oldal?</h2>
+        <ul class="big-list">
+          <li class="anim left" style="--d: 0.5s">
+            Bemutatja a Budapesten leggyakrabban látható madarakat.
+          </li>
+          <li class="anim left" style="--d: 1s">
+            Hat fajt ismerhetsz meg fényképpel és rövid leírással.
+          </li>
+          <li class="anim left" style="--d: 1.5s">
+            Az alján egy regisztrációs és egy előfizetés űrlap található.
+          </li>
+          <li class="anim left" style="--d: 2s">
+            Mindkét űrlap fiktív, csak a működést mutatja be.
+          </li>
+        </ul>
+      </section>
+
+      <!-- 3–8. Madarak -->
+      <section class="slide bird-slide">
+        <img class="anim photo-left" src="images/haz-veb.jpg" alt="Házi veréb" />
+        <div class="bird-text">
+          <h2 class="anim right" style="--d: 0.4s">Házi veréb</h2>
+          <p class="anim right" style="--d: 0.8s">
+            A város legismertebb madara: kicsi, barnás-szürke, a hím torka
+            fekete. Az emberek közelében él, csapatokban mozog.
+          </p>
+        </div>
+      </section>
+
+      <section class="slide bird-slide reverse">
+        <img class="anim photo-right" src="images/szarka.jpg" alt="Szarka" />
+        <div class="bird-text">
+          <h2 class="anim left" style="--d: 0.4s">Szarka</h2>
+          <p class="anim left" style="--d: 0.8s">
+            Fekete-fehér tollazat és hosszú, fémesen csillogó farok. Nagyon
+            intelligens, parkokban és kertekben él.
+          </p>
+        </div>
+      </section>
+
+      <section class="slide bird-slide">
+        <img
+          class="anim photo-left flip"
+          src="images/dolmanyos-varju.jpg"
+          alt="Dolmányos varjú"
+        />
+        <div class="bird-text">
+          <h2 class="anim right" style="--d: 0.4s">Dolmányos varjú</h2>
+          <p class="anim right" style="--d: 0.8s">
+            Szürke testű, fekete fejű és szárnyú nagy madár. Mindenevő és
+            rendkívül alkalmazkodó, a Duna-parttól a tereken át mindenhol él.
+          </p>
+        </div>
+      </section>
+
+      <section class="slide bird-slide reverse">
+        <img class="anim photo-right" src="images/galamb.jpg" alt="Városi galamb" />
+        <div class="bird-text">
+          <h2 class="anim left" style="--d: 0.4s">Városi galamb</h2>
+          <p class="anim left" style="--d: 0.8s">
+            A szirti galamb háziasított változatából származik. Hidakon,
+            párkányokon és forgalmas tereken él, színe változatos.
+          </p>
+        </div>
+      </section>
+
+      <section class="slide bird-slide">
+        <img
+          class="anim photo-left flip"
+          src="images/szencinege.jpg"
+          alt="Széncinege"
+        />
+        <div class="bird-text">
+          <h2 class="anim right" style="--d: 0.4s">Széncinege</h2>
+          <p class="anim right" style="--d: 0.8s">
+            Sárga hasán fekete csík húzódik, orcája fehér. Télen az etetők
+            gyakori vendége, tavasszal madárodúban költ.
+          </p>
+        </div>
+      </section>
+
+      <section class="slide bird-slide reverse">
+        <img class="anim photo-right" src="images/fekete-rigo.jpg" alt="Fekete rigó" />
+        <div class="bird-text">
+          <h2 class="anim left" style="--d: 0.4s">Fekete rigó</h2>
+          <p class="anim left" style="--d: 0.8s">
+            A hím fekete, narancssárga csőrű, a tojó barna. Gyönyörű énekéről
+            ismert, a gyepen földigilisztát keres.
+          </p>
+        </div>
+      </section>
+
+      <!-- 9. Űrlapok -->
+      <section class="slide">
+        <h2 class="anim up" style="--d: 0.1s">Az oldal űrlapjai</h2>
+        <div class="cards">
+          <div class="card anim up" style="--d: 0.6s">
+            <h3>Regisztráció</h3>
+            <p>
+              Név, e-mail és jelszó megadása után „sikeres regisztráció”
+              ablak jelenik meg.
+            </p>
+          </div>
+          <div class="card anim up" style="--d: 1.1s">
+            <h3>Előfizetés</h3>
+            <p>
+              Csomag, időtartam (árral forintban) és fizetési mód
+              (Google Pay, Apple Pay…) választható.
+            </p>
+          </div>
+        </div>
+        <p class="warning anim zoom" style="--d: 1.8s">
+          Figyelem: az űrlapok nem valódiak!
+        </p>
+      </section>
+
+      <!-- 10. Zárás -->
+      <section class="slide title-slide">
+        <h1 class="anim zoom" style="--d: 0.2s">Köszönöm a figyelmet!</h1>
+        <p class="anim up" style="--d: 0.9s">
+          Képek forrása: Wikipedia / Wikimedia Commons
+        </p>
+        <button id="restart" class="anim up" style="--d: 1.5s" type="button">
+          Újrakezdés
+        </button>
+      </section>
+    </div>
+
+    <nav id="controls">
+      <button id="prev" type="button" aria-label="Előző">◀</button>
+      <button id="play" type="button">▶ Automatikus</button>
+      <span id="counter"></span>
+      <button id="next" type="button" aria-label="Következő">▶</button>
+      <button id="sound" type="button" title="Zene bekapcsolása" aria-label="Zene be/ki">🔇</button>
+    </nav>
+
+    <script src="prezentacio.js"></script>
+  </body>
+</html>

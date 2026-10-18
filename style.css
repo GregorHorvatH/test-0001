@@ -1,0 +1,248 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: #2b2b2b;
+  background: #f4f1ea;
+}
+
+header {
+  background: #2f5d50;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+header h1 {
+  margin: 0 0 16px;
+  font-size: 2.4rem;
+}
+
+header p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+.presentation-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: #ffd166;
+  color: #1b3a32;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.presentation-link:hover {
+  background: #ffc233;
+}
+
+main {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.bird {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.bird.reverse {
+  flex-direction: row-reverse;
+}
+
+.bird img {
+  width: 45%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.bird img.flip {
+  transform: scaleX(-1);
+}
+
+.bird .text h2 {
+  margin-top: 0;
+  color: #2f5d50;
+}
+
+#forms {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+.form-column {
+  flex: 1;
+}
+
+.form-column h2 {
+  text-align: center;
+  color: #2f5d50;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+label {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.payment-methods {
+  margin: 12px 0 0;
+  padding: 0;
+  border: none;
+}
+
+.payment-methods legend {
+  padding: 0;
+  font-weight: bold;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  padding: 8px 10px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.payment-option:has(input:checked) {
+  border-color: #2f5d50;
+  background: #e8f1ee;
+}
+
+.payment-option input {
+  margin: 0;
+}
+
+.payment-option img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.required {
+  color: red;
+}
+
+input,
+select {
+  padding: 10px;
+  margin-top: 4px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background: #2f5d50;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #244a40;
+}
+
+form button {
+  margin-top: 20px;
+}
+
+.error-message {
+  margin: 12px 0 0;
+  color: #b00020;
+  min-height: 1.2em;
+}
+
+.warning {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 16px;
+  background: #ffe0e0;
+  padding: 12px;
+  border-radius: 5px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-box h3 {
+  margin-top: 0;
+  color: #2f5d50;
+}
+
+@media (max-width: 700px) {
+  .bird,
+  .bird.reverse {
+    flex-direction: column;
+  }
+
+  .bird img {
+    width: 100%;
+  }
+
+  #forms {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

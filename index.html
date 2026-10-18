@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budapesti madarak</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Budapesti madarak</h1>
+      <p>
+        Ez az oldal a Budapesten leggyakrabban látható madarakat mutatja be. Bár
+        a főváros nagy, forgalmas város, a parkjai, terei, a Duna-part és a
+        budai hegyek sok madárfajnak adnak otthont. Az alábbiakban hat közismert
+        fajt ismerhetsz meg fényképpel és rövid leírással, az oldal alján pedig
+        egy (nem valódi) regisztrációs űrlapot is kipróbálhatsz, amellyel a
+        madárbarátok klubjához csatlakozhatnál.
+      </p>
+      <a class="presentation-link" href="prezentacio.html">Prezentáció megtekintése →</a>
+    </header>
+
+    <main>
+      <section class="bird">
+        <img src="images/haz-veb.jpg" alt="Házi veréb hím" />
+        <div class="text">
+          <h2>Házi veréb</h2>
+          <p>
+            A város legismertebb madara. Kicsi, barnás-szürke tollú, a hím torka
+            fekete. Az emberek közelében él, gyakran látni étterem- és
+            kávézóteraszokon, ahogy a morzsákra vár. Csapatokban mozog, és
+            hangosan csiripel.
+          </p>
+        </div>
+      </section>
+
+      <section class="bird reverse">
+        <img src="images/szarka.jpg" alt="Szarka" />
+        <div class="text">
+          <h2>Szarka</h2>
+          <p>
+            Fekete-fehér tollazata és hosszú, fémesen csillogó farka könnyen
+            felismerhetővé teszi. Nagyon intelligens madár, a parkokban és a
+            kertekben él. Fák tetejére épít nagy, boltozatos fészket.
+          </p>
+        </div>
+      </section>
+
+      <section class="bird">
+        <img
+          class="flip"
+          src="images/dolmanyos-varju.jpg"
+          alt="Dolmányos varjú"
+        />
+        <div class="text">
+          <h2>Dolmányos varjú</h2>
+          <p>
+            Szürke testű, fekete fejű és szárnyú, nagy termetű madár. Budapesten
+            szinte mindenhol megtalálható, a szemétgyűjtőktől a tereken át a
+            Duna-partig. Mindenevő és rendkívül alkalmazkodó.
+          </p>
+        </div>
+      </section>
+
+      <section class="bird reverse">
+        <img src="images/galamb.jpg" alt="Szirti galamb" />
+        <div class="text">
+          <h2>Városi galamb</h2>
+          <p>
+            A vadon élő szirti galamb háziasított változatából származik. A
+            hidakon, épületek párkányain és a forgalmas tereken él. Színe
+            változatos: lehet szürke, fehér, barna vagy foltos.
+          </p>
+        </div>
+      </section>
+
+      <section class="bird">
+        <img class="flip" src="images/szencinege.jpg" alt="Széncinege" />
+        <div class="text">
+          <h2>Széncinege</h2>
+          <p>
+            Sárga hasán fekete hosszanti csík húzódik, feje fekete, orcája
+            fehér. Télen az etetőkön a leggyakoribb vendég, tavasszal pedig a
+            madárodúkban költ. Rovarokkal és magvakkal táplálkozik.
+          </p>
+        </div>
+      </section>
+
+      <section class="bird reverse">
+        <img src="images/fekete-rigo.jpg" alt="Fekete rigó hím" />
+        <div class="text">
+          <h2>Fekete rigó</h2>
+          <p>
+            A hím teljesen fekete, narancssárga csőrű, a tojó barna. Gyönyörű
+            énekéről ismert, amelyet kora tavasszal hajnalban és alkonyatkor
+            hallhatunk. A gyepen földigilisztát keres.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <section id="forms">
+     <div class="form-column">
+      <h2>Csatlakozz a madárbarát klubhoz!</h2>
+      <form id="register-form" novalidate>
+        <label for="name">Név <span class="required">*</span></label>
+        <input type="text" id="name" name="name" placeholder="Kiss Péter" />
+
+        <label for="email">E-mail cím <span class="required">*</span></label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="pelda@email.hu"
+        />
+
+        <label for="password">Jelszó <span class="required">*</span></label>
+        <input type="password" id="password" name="password" />
+
+        <label for="favorite">Kedvenc madarad</label>
+        <select id="favorite" name="favorite">
+          <option value="">Válassz...</option>
+          <option>Házi veréb</option>
+          <option>Szarka</option>
+          <option>Dolmányos varjú</option>
+          <option>Városi galamb</option>
+          <option>Széncinege</option>
+          <option>Fekete rigó</option>
+        </select>
+
+        <p id="error" class="error-message"></p>
+        <button type="submit">Regisztráció</button>
+      </form>
+      <p class="warning">
+        Figyelem: ez az űrlap nem valódi, az adataidat nem tároljuk és nem
+        küldjük el sehova!
+      </p>
+     </div>
+
+     <div class="form-column">
+      <h2>Iratkozz fel a hírlevelünkre!</h2>
+      <form id="subscribe-form" novalidate>
+        <label for="sub-email">E-mail cím <span class="required">*</span></label>
+        <input
+          type="email"
+          id="sub-email"
+          name="sub-email"
+          placeholder="pelda@email.hu"
+        />
+
+        <label for="plan">Csomag</label>
+        <select id="plan" name="plan">
+          <option data-price="0">Havi hírlevél (ingyenes)</option>
+          <option data-price="990">Heti madármegfigyelő napló (990 Ft/hó)</option>
+          <option data-price="2490">Prémium madárbarát csomag (2490 Ft/hó)</option>
+        </select>
+
+        <label for="period">Időtartam</label>
+        <select id="period" name="period">
+          <option data-months="1">1 hónap</option>
+          <option data-months="6">6 hónap</option>
+          <option data-months="12">12 hónap</option>
+        </select>
+
+        <fieldset class="payment-methods">
+          <legend>Fizetési mód</legend>
+          <label class="payment-option">
+            <input type="radio" name="payment" value="Google Pay" checked />
+            <img src="images/payment/google-pay.svg" alt="" />
+            <span>Google Pay</span>
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="payment" value="Apple Pay" />
+            <img src="images/payment/apple-pay.svg" alt="" />
+            <span>Apple Pay</span>
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="payment" value="Bankkártya" />
+            <img src="images/payment/card.svg" alt="" />
+            <span>Bankkártya</span>
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="payment" value="PayPal" />
+            <img src="images/payment/paypal.svg" alt="" />
+            <span>PayPal</span>
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="payment" value="Banki átutalás" />
+            <img src="images/payment/bank.svg" alt="" />
+            <span>Banki átutalás</span>
+          </label>
+        </fieldset>
+
+        <p id="sub-error" class="error-message"></p>
+        <button type="submit">Előfizetés</button>
+      </form>
+      <p class="warning">
+        Figyelem: ez az űrlap nem valódi, az adataidat nem tároljuk és nem
+        küldjük el sehova!
+      </p>
+     </div>
+    </section>
+
+    <footer>
+      <p>
+        Képek forrása: Wikipedia / Wikimedia Commons. Egyetemi házi feladat.
+      </p>
+    </footer>
+
+    <div id="modal" class="modal hidden">
+      <div class="modal-box">
+        <h3 id="modal-title"></h3>
+        <p id="modal-text"></p>
+        <button id="modal-close" type="button">Bezár</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
